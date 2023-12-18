@@ -25,8 +25,8 @@ LSM Trees helps storing massive amount of data, with very effecient write operat
 Overview: 
 Upon write, the data is stored in memory first, which is lightning fast. As we can't store everything in memory, when a certain threshold 
 is reached, a contiguous segment of data is flushed from the memory and merged to the disk. Here's another catch: The disk is arranged in
-the form of layers with increasing level of compaction at each layer. The top one being fastest to access but least compressed. 
-When data piles up, its compressed and is stored in SSTable (Sorted String Table).  
+the form of layers with increasing level of compaction at each layer. The top one being fastest to access(because of smaller size of SSTables)
+but least compressed. When data piles up, its compressed and is stored in SSTable (Sorted String Table) in next layer.  
 
 Notice a few details from above: the write is sequential in-memory, and the disk storage is sorted. 
 
