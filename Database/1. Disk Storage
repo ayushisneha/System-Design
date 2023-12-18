@@ -14,3 +14,22 @@ LSM-Tree:  Log-Structured Merge Tree
 
 LSM Trees is an immutable disk resident data structure, optimized for sequential writes while maintaining acceptable read performance.
 LSM Trees are the underlying data structure for many highly scalable NOSQL distributed key value type databases like DynamoDB, Cassandra,etc.
+
+LSM Trees helps storing massive amount of data, with very effecient write operations. LSM Trees consists of mainly two major components:
+	a. Memtable : in memory
+	b. SSTable : in disk
+# Refer image for overall view : https://miro.medium.com/v2/resize:fit:1400/format:webp/0*JeaDeiI9ncQMrqGK.png
+
+* Write Operation:
+
+Overview: 
+Upon write, the data is stored in memory first, which is lightning fast. As we can't store everything in memory, when a certain threshold is reached, a contiguous segment of data is flushed from the memory and merged to the disk. Here's another catch: The disk is arranged in the form of layers with increasing level of compaction at each layer. The top one being fastest to access but least compressed. When data piles up, its compressed and is stored in SSTable (Sorted String Table).  
+
+Notice a few details from above: the write is sequential in-memory, and the disk storage is sorted. 
+
+Dive in:
+Before the data is flushed to disk and organized into SSTables, it is also written to the Write-Ahead Log (WAL). So the data is written to the memory and is simultaneously written to WAL. This ensures data integrity - acts as a log of all the changes to help recover system failures. Thus, Memtable also provides write-back cache. 
+By writing to disk periodically and in larger batches, the number of times the disk has to spin up and down to access data is reduced, thus minimizing Disk I/O.
+
+* Read Operation:
+
