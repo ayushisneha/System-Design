@@ -39,3 +39,17 @@ thus minimizing Disk I/O.
 
 * Read Operation:
 
+LSM tree first checks the memory to find data, as its super fast. It then searches through different SSTables at each layers.
+The SSTables are sorted so the search takes O(logn) per SSTable. But since there are multiple SSTables it still needs to search through
+all, increasing the read overhead. Here the Bloom Filter comes into play. In short, bloom filter is a probabilistic data structure, which gives insight of whether 
+the data is definitely not present (with 100% surity), or maybe present. When the blloom filter signals that the LSM tree that the data is
+not present in a particular SSTable, that SSTable is completely skipped. Also, this bloom filter is updated with batch write operation. 
+
+* LSM Use Cases:
+	a. NOSQL  Database - efficient write manages high data ingestion rates
+	b. TimeSeries Database - storing and sorting based on timestamp, enables better query. 
+	c. Search Engine - speedy retrieval of indexed data, making search queries super fast.
+	d. Log System - realtime event streaming, write is append-only and sequential writes is beneficial here, also WAL ensures integrity.
+
+_________________________
+
