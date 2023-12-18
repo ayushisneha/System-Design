@@ -1,0 +1,16 @@
+Data Storage Access Patterns:
+	a. Sequential
+	b. Random
+Sequential writes doesn't always mean sequential reads - but offers better locality of reference from caching perspective.
+_________________________
+
+B+ Trees and LSM Tree are the two basic data structures when we talk about building blocks of databases.
+
+B+ Trees are used when we need less search and insertion time.
+LSM Trees are used for write-intensive databases with less reads.
+_________________________
+
+LSM-Tree:  Log-Structured Merge Tree
+
+LSM Trees is an immutable disk resident data structure, optimized for sequential writes while maintaining acceptable read performance.
+LSM Trees are the underlying data structure for many highly scalable NOSQL distributed key value type databases like DynamoDB, Cassandra,etc.
