@@ -46,7 +46,7 @@ the data is definitely not present (with 100% surity), or maybe present. When th
 not present in a particular SSTable, that SSTable is completely skipped. Also, this bloom filter is updated with batch write operation. 
 
 * LSM Use Cases:
-	a. NOSQL  Database - efficient write manages high data ingestion rates
+	a. NOSQL  Database - efficient write manages high data ingestion rates and can support the unstructured or semi structured data.
 	b. TimeSeries Database - storing and sorting based on timestamp, enables better query. 
 	c. Search Engine - speedy retrieval of indexed data, making search queries super fast.
 	d. Log System - realtime event streaming, write is append-only and sequential writes is beneficial here, also WAL ensures integrity.
