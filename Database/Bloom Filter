@@ -1,12 +1,15 @@
-Bloom Filter is  a space-efficient probabilistic data structure that tells whether an element may be present in a container or definitely not. 
+Bloom Filter is  a space-efficient probabilistic data structure that tells whether an element may be present in a container
+or definitely not. 
 
 Lets say there's a string, and we want to figure out whether a given-string s is same or not. Now instead of comparing
 each of the string entirely, we can precompute hash for each string, and compare just the hash of the given string.
-If the hash is not equal we can say for sure the string is not equal, and if they are equal there's a probability that these strings are 
-maybe equal. 
-Limitation: A hash function will give value in the range (0, range-1). So we will be able to correctly identify the match for only range times,
-and other strings will meet with collision. To overcome this, we can have multiple hash-functions, lets say k differnt hash functions.
-Now when any one of the k hash functions differ, we can say the strings are different, and compare the string only when all hashes equals.
+If the hash is not equal we can say for sure the string is not equal, and if they are equal there's a probability that
+these strings are maybe equal. 
+
+Limitation: A hash function will give value in the range (0, range-1). So we will be able to correctly identify the match for
+only range times, and other strings will meet with collision. To overcome this, we can have multiple hash-functions,
+lets say k differnt hash functions. Now when any one of the k hash functions differ, we can say the strings are different,
+and compare the string only when all hashes equals.
 
 
 
