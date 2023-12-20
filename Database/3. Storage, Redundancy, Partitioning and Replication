@@ -1,0 +1,26 @@
+Storage: 
+	- Volatile : Cache, RAM
+	- Non-volatile: Hard Disk
+
+Redundancy: duplication of critical components (web server, database server, etc) to increase reliability and availability, by 
+avoiding single point of failure.
+
+a. Passive Redundancy - The redundant component sits idle until there's a failover, and then it takes the charge.
+In case of failure, the system must ensure the state of redundant component is fresh, thus its the job of primary component to
+continuously inform the standby components to update their state.
+Periodically forcing switchover can ensure that the redundant component will work fine in case of failure of primary component.
+Sometimes passive redundancy may not provide instant recovery as there can be delay in realising failure and switching. So it 
+may require other fault tolerant techniques like active monitoriing, regular testing, and fault detection mechanisms.
+Can be useful when:
+	- scalability is not prime concern
+	- downtown or failure can have significant consequences
+	- failover process requires manual intervention.
+
+b. Active Redundancy
+Multiple identical components works simultaneously, sharing load and executing tasks concurrently. 
+Used when:
+	- high availability is required
+	- traffic is high
+	- rapid recovery is required in event of failure
+
+
