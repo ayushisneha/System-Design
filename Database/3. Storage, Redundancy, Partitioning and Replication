@@ -22,5 +22,16 @@ Used when:
 	- high availability is required
 	- traffic is high
 	- rapid recovery is required in event of failure
+_______________________________________________
+
+Database Partitioning (Sharding)
+Dividing large datasets into several small partitions to reside on different machine, which yet gives the client the view as if
+its talking to a single database. 
+a. Horizontal Partitioning / Sharding
+b. Vertical Partitioning / Normalization
+_______________________________________________
+ 
+Database Replication
+
 
 
