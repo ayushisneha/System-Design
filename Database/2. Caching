@@ -13,7 +13,7 @@ Cache eviction policy:
 a. LRU: Least Recently Used
 b. LFU: Least Frequently Used
 c. FIFO: First in First Out
-d. MRU: Most Recently USed
+d. MRU: Most Recently Used
 e. RR: Random Replacement 
 or maybe other policy depending on the use case.
 
@@ -25,6 +25,8 @@ b. Read-through Strategy
 c. Write-through Strategy
 d. Write-around Strategy
 e. Write-back Startegy
+
+_____________________________________________
 
 Cache Invalidation Strategies in nutshell -
 
@@ -44,4 +46,29 @@ achieve eventual consistency.
 To ensure immediate consistency, we can use the write strategies:
 
 c. Write-through Strategy:
+In this, the writes are first made to the cache and then to the DB, and write is successful if both places are updated.
+This comes with a tradeoff of increased write latency, and hence not a good choice for write extensive aplications.
+However, this is best for applications that frequently re-read data. Here the cache is always updated with latest data,
+and write latency can be compensated. 
 
+d. Write-around Strategy:
+In this, the writes are directly written to the DB, and cache is updated only when read is called. This is highly useful for write-heavy
+applications and may not be suited where recent data is re-read frequently. 
+
+e. Write-back Strategy:
+Here, all the writes are temporarily written to the cache and data is asynchronously updated to the Database. This strategy comes with the
+risk when the cache layer fails. To overcome this multiple layers of cache can be used and data can be replicated.
+_____________________________________________
+
+Caching in System Design:
+a. Browser Caching or client side caching - resources/pages are cached on user's browser. 
+b. Web Server Caching 
+    - Reverse proxy cache
+    - Key value Database
+c. CDN
+d. Distributed Caching
+
+
+
+
+Reference: https://www.enjoyalgorithms.com/blog/caching-system-design-concept/
