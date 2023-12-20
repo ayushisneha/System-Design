@@ -62,11 +62,17 @@ _____________________________________________
 
 Caching in System Design:
 a. Browser Caching or client side caching - resources/pages are cached on user's browser. 
-b. Web Server Caching 
-    - Reverse proxy cache
-    - Key value Database
-c. CDN
+b. Web Server Caching - storing data on the server side
+    - Reverse proxy cache : caches HTTP response, if this has the data, it serves the client without forwarding the request to the web server
+    - Key value Database (memcached, redis) : unlike reverse proxy, it caches user-specific data.
+c. CDN (Content Delivery Network) -
+improves delivery speed by caching static content by residing in strategic location across the globe, thus minimizing distance between client
+and server.
 d. Distributed Caching
+using multiple caching servers that are spread across a network. Unlike traditional caches which are limited to the memory of a single machine
+distributed cache can scale beyond the memory limits of single machine by linking together multiple machines (distributed clusters)
+Each caching server maintains a portion of cached data, and request are directed to appropriate cache server based on hasing algo or
+some distribution strategy. 
 
 
 
