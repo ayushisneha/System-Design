@@ -1,0 +1,30 @@
+Cache is a high speed storage/faster memory that stores a small proportion of frequent/critical data so that future requests can be served faster.
+
+Caching is the process of storing data in a temporary storage called cache to improve speed of data access. 
+A general strategy is to store the most frequent data in cache to avoid costly disk I/O operation, or recently used
+data based on the context.
+
+Client makes the request, first the cache is looked for the data, if present serve it, if there's a miss, then search in the
+database -> serve request and update cache according to the strategy. 
+
+Cache hit and miss metrics can be used for determining chache performance.
+
+Cache eviction policy:
+a. LRU: Least Recently Used
+b. LFU: Least Frequently Used
+c. FIFO: First in First Out
+d. MRU: Most Recently USed
+e. RR: Random Replacement 
+or maybe other policy depending on the use case.
+
+Cache Invalidation and Caching Strategies:
+With constant update in database, it is also important to update cache to serve fresh data. There's majoorly 5 types of strategies
+to solve cache invalidation:-
+a. Cache-aside Strategy 
+b. Read-through Strategy
+c. Write-through Strategy
+d. Write-around Strategy
+e. Write-back Startegy
+
+Cache Invalidation Strategies in nutshell
+a. Cache-aside Strategy:
