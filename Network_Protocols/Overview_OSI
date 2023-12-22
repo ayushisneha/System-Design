@@ -1,1 +1,31 @@
 Overview
+
+The 7 OSI Layer: 
+1. Application - Provides services & protocols to applications to exchange data. HTTP, SMTP, FTP
+2. Presentation - encryption and decryption of data
+3. Session - manages communication session between applications.
+4. Transport - ensures reliable and efficient data transfer by breaking them into packets. TCP, UDP
+5. Network - determines best path for data transmission across networks by routing algorithms and IP addressing. IP
+6. Data Link - 
+7. Physical 
+
+
+Internet Protocol -
+Network layer protocol. 
+IP Packet is the fundamental unit of data transmitted over the internet. It consists of IP header(IP address, size of packet, protocol, etc.)
+and the data (payload). 
+
+TCP-
+TCP is the transport layer protocol, built on top of IP.
+The data to be transmitted can be very large, and a single IP Packet maynot be sufficient, and it may require to break the data into
+multiple packets. TCP ensures successful transmission of all the packets, error-checks and request the missing packets again, and re-assemble 
+the packets in-order.
+
+UDP-
+UDP is also the transport layer protocol, built on top of IP. It however doesn't provide reliable data transfer. The hand-shaking and
+other checksums in TCP increases latency and thus is not very efficient where speed is required and some loss is bearable. In such scenarios
+like video calling, streaming, etc, UDP is used.
+
+HTTP-
+HTTP is a Application layer protocol, built on top of TCP. It provides abstraction to developers to focus on application rather than details
+of TCP/IP.
