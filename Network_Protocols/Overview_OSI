@@ -24,7 +24,7 @@ the packets in-order.
 UDP-
 UDP is also the transport layer protocol, built on top of IP. It however doesn't provide reliable data transfer. The hand-shaking and
 other checksums in TCP increases latency and thus is not very efficient where speed is required and some loss is bearable. In such scenarios
-like video calling, streaming, etc, UDP is used.
+like streaming, etc, UDP is used.
 
 HTTP-
 HTTP is a Application layer protocol, built on top of TCP. It provides abstraction to developers to focus on application rather than details
